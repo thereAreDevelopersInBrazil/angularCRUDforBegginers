@@ -1,0 +1,53 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'C:\\nodejs\\\\node.exe',
+1 verbose cli   'C:\\nodejs\\node_modules\\npm\\bin\\npm-cli.js',
+1 verbose cli   'install',
+1 verbose cli   'yum',
+1 verbose cli   '-g' ]
+2 info using npm@1.4.28
+3 info using node@v0.10.33
+4 verbose node symlink C:\nodejs\\node.exe
+5 verbose cache add [ 'yum', null ]
+6 verbose cache add name=undefined spec="yum" args=["yum",null]
+7 verbose parsed url { protocol: null,
+7 verbose parsed url   slashes: null,
+7 verbose parsed url   auth: null,
+7 verbose parsed url   host: null,
+7 verbose parsed url   port: null,
+7 verbose parsed url   hostname: null,
+7 verbose parsed url   hash: null,
+7 verbose parsed url   search: null,
+7 verbose parsed url   query: null,
+7 verbose parsed url   pathname: 'yum',
+7 verbose parsed url   path: 'yum',
+7 verbose parsed url   href: 'yum' }
+8 silly lockFile 3c14423e-yum yum
+9 verbose lock yum C:\Users\Natanael\AppData\Roaming\npm-cache\3c14423e-yum.lock
+10 silly lockFile 3c14423e-yum yum
+11 silly lockFile 3c14423e-yum yum
+12 verbose addNamed [ 'yum', '' ]
+13 verbose addNamed [ null, '*' ]
+14 silly lockFile 2e6efcef-yum yum@
+15 verbose lock yum@ C:\Users\Natanael\AppData\Roaming\npm-cache\2e6efcef-yum.lock
+16 silly addNameRange { name: 'yum', range: '*', hasData: false }
+17 verbose registry.get https://registry.npmjs.org/yum not expired, no request
+18 silly addNameRange number 2 { name: 'yum', range: '*', hasData: true }
+19 silly addNameRange versions [ 'yum', [] ]
+20 error TypeError: Cannot read property 'latest' of undefined
+20 error     at next (C:\nodejs\node_modules\npm\lib\cache\add-named.js:219:35)
+20 error     at C:\nodejs\node_modules\npm\lib\cache\add-named.js:207:5
+20 error     at RegClient.get_ (C:\nodejs\node_modules\npm\node_modules\npm-registry-client\lib\get.js:130:14)
+20 error     at RegClient.<anonymous> (C:\nodejs\node_modules\npm\node_modules\npm-registry-client\lib\get.js:49:12)
+20 error     at evalmachine.<anonymous>:271:14
+20 error     at C:\nodejs\node_modules\npm\node_modules\graceful-fs\graceful-fs.js:102:5
+20 error     at Object.oncomplete (evalmachine.<anonymous>:107:15)
+21 error If you need help, you may report this *entire* log,
+21 error including the npm and node versions, at:
+21 error     <http://github.com/npm/npm/issues>
+22 error System Windows_NT 6.1.7601
+23 error command "C:\\nodejs\\\\node.exe" "C:\\nodejs\\node_modules\\npm\\bin\\npm-cli.js" "install" "yum" "-g"
+24 error cwd C:\Users\Natanael\WebstormProjects\Aula1
+25 error node -v v0.10.33
+26 error npm -v 1.4.28
+27 error type non_object_property_load
+28 verbose exit [ 1, true ]

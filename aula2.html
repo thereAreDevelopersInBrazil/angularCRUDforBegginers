@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<meta lang="en">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Aula 2 - Angular JS</title>
+<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css"/>
+<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap-theme.css"/>
+<link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.css"/>
+
+<script src="bower_components/angular/angular.js"></script>
+<script src="app/js/aula1-config.js"></script>
+<script src="app/js/controllers/aula2.js"></script>
+</head>
+<body ng-app="aula2">
+<div ng-controller="aula2Controller">
+    <div class="container">
+        <h1 style="text-align: center;"><i class="fa fa-graduation-cap"></i> Aula 2 - Curso Angular JS</h1>
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <i class="fa fa-bootstrap"></i> Formulário Bootstrap
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+                        <div class="form-group">
+                            <label for="nome">Nome</label>
+                            <input type="text" id="nome" class="form-control" ng-model="pessoa.nome"/>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="text" id="email" class="form-control" ng-model="pessoa.email"/>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+                        <div class="form-group">
+                            <label for="data_nascimento">Data Nascimento</label>
+                            <input type="date" id="data_nascimento" class="form-control" ng-model="pessoa.data_nascimento"/>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+                        <div class="form-group">
+                            <label for="telefone">Telefone</label>
+                            <input type="text" id="telefone" class="form-control" ng-model="pessoa.telefone"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="panel-footer">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+                        <button class="btn btn-info col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                            <i class="fa fa-eraser"></i>
+                            Limpar
+                        </button>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+                        <button class="btn btn-success col-xs-12 col-sm-12 col-md-12 col-lg-12" ng-click="adicionaPessoa()">
+                            <i class="fa fa-save"></i>
+                            Salvar
+                        </button>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+                        <button class="btn btn-danger col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                            <i class="fa fa-trash"></i>
+                            Excluir
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <table class="table table-bordered table-hover table-responsive table-striped">
+            <thead>
+            <th ng-repeat="coluna in colunas">
+                {{::coluna.nome}}
+            </th>
+            </thead>
+            <tbody>
+            <tr ng-repeat="pessoa in pessoas track by $index">
+                <td ng-repeat="coluna in colunas">
+                    {{::pessoa[coluna.chave]}}
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+</body>
+</html>

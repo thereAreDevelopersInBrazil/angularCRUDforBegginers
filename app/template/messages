@@ -1,0 +1,12 @@
+<p class="help-block" ng-message="required">
+    Campo obrigatório
+</p>
+<p class="help-block" ng-message="minlength">
+    Tamanho minimo não atingido!
+</p>
+<p class="help-block" ng-message="maxlength">
+    Tamanho máximo ultrapassado!
+</p>
+<p class="help-block" ng-message="date">
+    Data Inválida!
+</p>

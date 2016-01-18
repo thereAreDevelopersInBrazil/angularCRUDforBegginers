@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<meta lang="en">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Aula 3 - Angular JS</title>
+<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css"/>
+<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap-theme.css"/>
+<link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.css"/>
+<link rel="stylesheet" href="bower_components/angular-toastr/dist/angular-toastr.css"/>
+<link rel="stylesheet" href="bower_components/angular-ui-grid/ui-grid.css"/>
+
+<script src="bower_components/angular/angular.js"></script>
+<script src="bower_components/angular-messages/angular-messages.js"></script>
+<script src="bower_components/angular-toastr/dist/angular-toastr.tpls.js"></script>
+<script src="app/js/aula1-config.js"></script>
+<script src="app/js/controllers/aula3.js"></script>
+<script src="app/js/arquitetura/services/alert-service.js"></script>
+<script src="app/js/arquitetura/filters/maiusculo.js"></script>
+<script src="bower_components/angular-ui-grid/ui-grid.js"></script>
+</head>
+<body ng-app="aula3">
+<div ng-controller="aula3Controller">
+    <div class="container">
+        <h1 style="text-align: center;"><i class="fa fa-graduation-cap"></i> Aula 3 - Curso Angular JS</h1>
+
+        <form name="formularioPessoa"
+              ng-submit="adicionaPessoa()"
+              novalidate>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <center>
+                        <h3>
+                            <i class="fa fa-gears"></i> Formulário Bootstrap
+                        </h3>
+                    </center>
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+                            <div class="form-group"
+                                 ng-class="{'has-error': formularioPessoa.nome.$invalid && formularioPessoa.nome.$touched}">
+                                <label class="control-label" for="nome">Nome</label>
+                                <input type="text" id="nome" name="nome" class="form-control"
+                                       ng-model="pessoa.nome"
+                                       required
+                                       ng-minlength="3"
+                                       ng-maxlength="100"
+                                        />
+
+                                <div ng-messages="formularioPessoa.nome.$error"
+                                     ng-if="formularioPessoa.$invalid && formularioPessoa.nome.$touched">
+                                    <div ng-messages-include="app/template/messages"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+                            <div class="form-group"
+                                 ng-class="{'has-error':formularioPessoa.email.$invalid && formularioPessoa.email.$touched}">
+                                <label class="control-label" for="email">Email</label>
+                                <input type="text" id="email" name="email" class="form-control"
+                                       ng-model="pessoa.email"
+                                       required
+                                       ng-minlength="5"
+                                       ng-maxlength="20"
+                                        />
+
+                                <div ng-messages="formularioPessoa.email.$error">
+                                    <div ng-messages-include="app/template/messages"
+                                         ng-if="formularioPessoa.$invalid && formularioPessoa.email.$touched">
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+                            <div class="form-group"
+                                 ng-class="{'has-error': formularioPessoa.data_nascimento.$invalid && formularioPessoa.data_nascimento.$touched}">
+                                <label class="control-label" for="data_nascimento">Data Nascimento</label>
+                                <input type="date" id="data_nascimento" name="data_nascimento" class="form-control"
+                                       ng-model="pessoa.data_nascimento"
+                                       required/>
+
+                                <div ng-messages="formularioPessoa.data_nascimento.$error">
+                                    <div ng-messages-include="app/template/messages"
+                                         ng-if="formularioPessoa.$invalid && formularioPessoa.data_nascimento.$touched">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+                            <div class="form-group"
+                                 ng-class="{'has-error':formularioPessoa.telefone.$invalid && formularioPessoa.telefone.$touched}">
+                                <label class="control-label" for="telefone">Telefone</label>
+                                <input type="text" id="telefone" name="telefone" class="form-control"
+                                       ng-model="pessoa.telefone"
+                                       required
+                                       ng-minlength="14"
+                                       ng-maxlength="14"/>
+
+                                <div ng-messages="formularioPessoa.telefone.$error">
+                                    <div ng-messages-include="app/template/messages"
+                                         ng-if="formularioPessoa.$invalid && formularioPessoa.telefone.$touched">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+                            <div class="form-group"
+                                 ng-class="{'has-error':formularioPessoa.cor.$invalid && formularioPessoa.cor.$touched}">
+                                <label class="control-label" for="cor">Cor</label>
+                                <input type="text" id="cor" name="cor" class="form-control"
+                                       ng-model="pessoa.cor"
+                                       required/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel-footer">
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+                            <button type="button"
+                                    ng-click="limpar();"
+                                    class="btn btn-info col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                <i class="fa fa-eraser"></i>
+                                Limpar
+                            </button>
+                        </div>
+                        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+                            <button type="submit" class="btn btn-success col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                <i class="fa fa-save"></i>
+                                Salvar
+                            </button>
+                        </div>
+                        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+                            <button
+                                    type="button"
+                                    ng-click="excluir();"
+                                    class="btn btn-danger col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                <i class="fa fa-trash"></i>
+                                Excluir
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+
+        <!--<table class="table table-bordered table-hover table-responsive table-striped">-->
+        <!--<thead>-->
+        <!--<th ng-repeat="coluna in colunas">-->
+        <!--{{coluna.nome}}-->
+        <!--</th>-->
+        <!--</thead>-->
+        <!--<tbody>-->
+        <!--<tr ng-repeat="pessoa in pessoas track by $index">-->
+        <!--<td ng-repeat="coluna in colunas">-->
+        <!--{{pessoa[coluna.chave]}}-->
+        <!--</td>-->
+        <!--</tr>-->
+        <!--</tbody>-->
+        <!--</table>-->
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div ui-grid="gridOptions" style="height: 200px;">
+
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
