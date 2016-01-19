@@ -11,6 +11,8 @@
     "angular-messages": "~1.4.8",
     "angular-toastr": "~1",
     "jquery": "~2.2.0",
-    "angular-ui-grid": "~3.0.7"
+    "angular-ui-grid": "~3.0.7",
+    "angular-material": "~1.0.2",
+    "angular-ui-router": "ui-router#~0.2.15"
   }
 }

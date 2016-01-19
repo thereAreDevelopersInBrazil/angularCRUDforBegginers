@@ -13,6 +13,7 @@
 <script src="bower_components/angular/angular.js"></script>
 <script src="bower_components/angular-messages/angular-messages.js"></script>
 <script src="bower_components/angular-toastr/dist/angular-toastr.tpls.js"></script>
+<script src="bower_components/angular-material/angular-material.js"></script>
 <script src="bower_components/angular-aria/angular-aria.js"></script>
 <script src="bower_components/angular-animate/angular-animate.js"></script>
 <script src="bower_components/angular-ui-grid/ui-grid.js"></script>
@@ -41,11 +42,11 @@
                 <div class="panel-body">
                     <div class="row">
                         <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
-                            <div class="form-group"
-                                 ng-class="{'has-error': formularioPessoa.nome.$invalid && formularioPessoa.nome.$touched}">
-                                <label class="control-label" for="nome">Nome</label>
-                                <input type="text" id="nome" name="nome" class="form-control"
+                            <md-input-container>
+                                <label>Nome</label>
+                                <input type="text"
                                        ng-model="pessoa.nome"
+                                       name="nome"
                                        required
                                        ng-minlength="3"
                                        ng-maxlength="100"
@@ -55,29 +56,14 @@
                                      ng-if="formularioPessoa.$invalid && formularioPessoa.nome.$touched">
                                     <div ng-messages-include="app/template/messages"></div>
                                 </div>
-                            </div>
-                            <div class="form-group"
-                                 ng-class="{'has-error': formularioPessoa.nome.$invalid && formularioPessoa.nome.$touched}">
-                                <label class="control-label" for="nome">Nome</label>
-                                <input type="text" id="nome" name="nome" class="form-control"
-                                       ng-model="pessoa.nome"
-                                       required
-                                       ng-minlength="3"
-                                       ng-maxlength="100"
-                                        />
-
-                                <div ng-messages="formularioPessoa.nome.$error"
-                                     ng-if="formularioPessoa.$invalid && formularioPessoa.nome.$touched">
-                                    <div ng-messages-include="app/template/messages"></div>
-                                </div>
-                            </div>
+                            </md-input-container>
                         </div>
                         <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
-                            <div class="form-group"
-                                 ng-class="{'has-error':formularioPessoa.email.$invalid && formularioPessoa.email.$touched}">
-                                <label class="control-label" for="email">Email</label>
-                                <input type="text" id="email" name="email" class="form-control"
+                            <md-input-container>
+                                <label>Email</label>
+                                <input type="text"
                                        ng-model="pessoa.email"
+                                       name="email"
                                        required
                                        ng-minlength="5"
                                        ng-maxlength="20"
@@ -85,53 +71,61 @@
 
                                 <div ng-messages="formularioPessoa.email.$error">
                                     <div ng-messages-include="app/template/messages"
-                                         ng-if="formularioPessoa.$invalid && formularioPessoa.email.$touched">
-
+                                         ng-if="formularioPessoa.$invalid && formularioPessoa.email.$touched">F
                                     </div>
                                 </div>
-                            </div>
+                            </md-input-container>
                         </div>
                         <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
-                            <div class="form-group"
-                                 ng-class="{'has-error': formularioPessoa.data_nascimento.$invalid && formularioPessoa.data_nascimento.$touched}">
-                                <label class="control-label" for="data_nascimento">Data Nascimento</label>
-                                <input type="date" id="data_nascimento" name="data_nascimento" class="form-control"
+                            <md-input-container>
+                                <label>Data Nascimento</label>
+                                <input type="date"
                                        ng-model="pessoa.data_nascimento"
-                                       required/>
+                                       name="data_nascimento"
+                                       required
+                                        />
 
                                 <div ng-messages="formularioPessoa.data_nascimento.$error">
                                     <div ng-messages-include="app/template/messages"
                                          ng-if="formularioPessoa.$invalid && formularioPessoa.data_nascimento.$touched">
                                     </div>
                                 </div>
-                            </div>
+                            </md-input-container>
                         </div>
                         <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
-                            <div class="form-group"
-                                 ng-class="{'has-error':formularioPessoa.telefone.$invalid && formularioPessoa.telefone.$touched}">
-                                <label class="control-label" for="telefone">Telefone</label>
-                                <input type="text" id="telefone" name="telefone" class="form-control"
+                            <md-input-container>
+                                <label>Telefone</label>
+                                <input type="text"
                                        ng-model="pessoa.telefone"
+                                       name="telefone"
                                        required
                                        ng-minlength="14"
-                                       ng-maxlength="14"/>
+                                       ng-maxlength="14"
+                                        />
 
                                 <div ng-messages="formularioPessoa.telefone.$error">
                                     <div ng-messages-include="app/template/messages"
                                          ng-if="formularioPessoa.$invalid && formularioPessoa.telefone.$touched">
                                     </div>
                                 </div>
-                            </div>
+                            </md-input-container>
                         </div>
 
                         <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
-                            <div class="form-group"
-                                 ng-class="{'has-error':formularioPessoa.cor.$invalid && formularioPessoa.cor.$touched}">
-                                <label class="control-label" for="cor">Cor</label>
-                                <input type="text" id="cor" name="cor" class="form-control"
+                            <md-input-container>
+                                <label>Cor</label>
+                                <input type="color"
                                        ng-model="pessoa.cor"
-                                       required/>
-                            </div>
+                                       name="cor"
+                                       required
+                                        />
+
+                                <div ng-messages="formularioPessoa.cor.$error">
+                                    <div ng-messages-include="app/template/messages"
+                                         ng-if="formularioPessoa.$invalid && formularioPessoa.cor.$touched">
+                                    </div>
+                                </div>
+                            </md-input-container>
                         </div>
                     </div>
                 </div>
