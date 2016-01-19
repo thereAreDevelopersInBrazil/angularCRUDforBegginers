@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<meta lang="en">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Aula 3 - Angular JS</title>
+<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css"/>
+<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap-theme.css"/>
+<link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.css"/>
+<link rel="stylesheet" href="bower_components/angular-toastr/dist/angular-toastr.css"/>
+<link rel="stylesheet" href="bower_components/angular-ui-grid/ui-grid.css"/>
+<link rel="stylesheet" href="bower_components/angular-material/angular-material.css"/>
+
+<script src="bower_components/angular/angular.js"></script>
+<script src="bower_components/angular-messages/angular-messages.js"></script>
+<script src="bower_components/angular-toastr/dist/angular-toastr.tpls.js"></script>
+<script src="bower_components/angular-material/angular-material.js"></script>
+<script src="bower_components/angular-aria/angular-aria.js"></script>
+<script src="bower_components/angular-animate/angular-animate.js"></script>
+<script src="bower_components/angular-ui-grid/ui-grid.js"></script>
+<script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+<script src="bower_components/oclazyload/dist/ocLazyLoad.js"></script>
+
+<script src="app/js/aula1-config.js"></script>
+<script src="app/js/controllers/aula3.js"></script>
+<script src="app/js/arquitetura/services/alert-service.js"></script>
+<script src="app/js/arquitetura/filters/maiusculo.js"></script>
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    nav {
+        margin: 50px;
+    }
+
+    ul {
+        overflow: auto;
+        list-style-type: none;
+    }
+
+    li {
+        height: 25px;
+        float: left;
+        margin-right: 0px;
+        border-right: 1px solid #aaa;
+        padding: 0 20px;
+    }
+
+    li:last-child {
+        border-right: none;
+    }
+
+    li a {
+        text-decoration: none;
+        color: #ccc;
+        font: 25px/1 Helvetica, Verdana, sans-serif;
+        text-transform: uppercase;
+
+        -webkit-transition: all 0.5s ease;
+        -moz-transition: all 0.5s ease;
+        -o-transition: all 0.5s ease;
+        -ms-transition: all 0.5s ease;
+        transition: all 0.5s ease;
+    }
+
+    li a:hover {
+        color: #666;
+    }
+
+    li.active a {
+        font-weight: bold;
+        color: #333;
+    }
+</style>
+
+</head>
+<body ng-app="aula3">
+<div ng-controller="aula3Controller">
+    <div class="container">
+        <nav>
+            <ul>
+                <li>
+                    <a ui-sref="home" class="active">Home</a>
+                </li>
+                <li>
+                    <a ui-sref="cadastro">Cadastro</a>
+                </li>
+                <li>
+                    <a ui-sref="lista">Lista</a>
+                </li>
+            </ul>
+        </nav>
+        <div ui-view></div>
+    </div>
+</div>
+</body>
+</html>
